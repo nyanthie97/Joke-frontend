@@ -52,3 +52,24 @@ export function Joke() {
           <Button color="info" onClick={handleGetAnother}>Try Again</Button>
         </div>
       );
+
+    } else if (!jokeLoaded) {
+        return <div>Loading...</div>;
+      } else {
+        return (
+          <div className="box-container">
+            <JokeSetup jokeLoaded={jokeLoaded}
+              setup={theJoke.setup}
+              jokeType={theJoke.category}
+              showPunchline={showPunchline}
+              handlePunchline={handlePunchline} />
+            {showPunchline &&
+              <Punchline
+                showPunchline={showPunchline}
+                punchline={theJoke.delivery}
+                handleGetAnother={handleGetAnother} />
+            }
+          </div>
+        )
+      }
+    }
