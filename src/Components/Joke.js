@@ -9,3 +9,24 @@ export function Joke() {
     const [theJoke, setTheJoke] = useState({});
     const [showPunchline, setShowPunchline] = useState(false);
     const [error, setError] = useState(null);
+
+
+ // flow notes
+  // component load and should show "loading"
+  // then call to get joke
+  // handle the error also
+  // when joke shows up, display JokeSetup with tellme button
+  // click on tellme, tellme should go away and
+  // punchline should show along with "get new joke"
+
+  const handlePunchline = () => {
+    setShowPunchline(true);
+  }
+
+  const handleGetAnother = () => {
+    setJokeLoaded(false);
+    setTheJoke({});
+    setShowPunchline(false);
+    setError(null)
+    loadAnother();
+  }
