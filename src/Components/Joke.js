@@ -77,5 +77,13 @@ export function Joke() {
     useEffect(() => {
         loadAnother()
       }, []);
+
+    
+      return (
+        <>
+          {showView()}
+        </>
+      )
+    }
     
     
