@@ -30,3 +30,16 @@ export function Joke() {
     setError(null)
     loadAnother();
   }
+
+
+  const loadAnother = () => {
+    getJoke()
+      .then(response => {
+        setTheJoke(response);
+        setJokeLoaded(true);
+      })
+      .catch((error) => {
+        // console.error("Error fetching data: ", error);
+        setError(error);
+      })
+  }
