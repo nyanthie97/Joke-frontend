@@ -9,7 +9,6 @@ export function JokeSetup({ jokeLoaded, showPunchline, jokeType, setup, handlePu
   // don't want to click again
   // could create components for showMeJoke and showTellMeButton
 
-
   return (
     <Card body inverse style={{ backgroundColor: '#85144b', borderColor: '#85144b' }}>
       {jokeLoaded ?

@@ -5,13 +5,12 @@ import { JokeSetup } from './JokeSetup';
 import { Button } from 'reactstrap'
 
 export function Joke() {
-    const [jokeLoaded, setJokeLoaded] = useState(false);
-    const [theJoke, setTheJoke] = useState({});
-    const [showPunchline, setShowPunchline] = useState(false);
-    const [error, setError] = useState(null);
+  const [jokeLoaded, setJokeLoaded] = useState(false);
+  const [theJoke, setTheJoke] = useState({});
+  const [showPunchline, setShowPunchline] = useState(false);
+  const [error, setError] = useState(null);
 
-
- // flow notes
+  // flow notes
   // component load and should show "loading"
   // then call to get joke
   // handle the error also
@@ -52,38 +51,35 @@ export function Joke() {
           <Button color="info" onClick={handleGetAnother}>Try Again</Button>
         </div>
       );
-
     } else if (!jokeLoaded) {
-        return <div>Loading...</div>;
-      } else {
-        return (
-          <div className="box-container">
-            <JokeSetup jokeLoaded={jokeLoaded}
-              setup={theJoke.setup}
-              jokeType={theJoke.category}
-              showPunchline={showPunchline}
-              handlePunchline={handlePunchline} />
-            {showPunchline &&
-              <Punchline
-                showPunchline={showPunchline}
-                punchline={theJoke.delivery}
-                handleGetAnother={handleGetAnother} />
-            }
-          </div>
-        )
-      }
-    }
-
-    useEffect(() => {
-        loadAnother()
-      }, []);
-
-    
+      return <div>Loading...</div>;
+    } else {
       return (
-        <>
-          {showView()}
-        </>
+        <div className="box-container">
+          <JokeSetup jokeLoaded={jokeLoaded}
+            setup={theJoke.setup}
+            jokeType={theJoke.category}
+            showPunchline={showPunchline}
+            handlePunchline={handlePunchline} />
+          {showPunchline &&
+            <Punchline
+              showPunchline={showPunchline}
+              punchline={theJoke.delivery}
+              handleGetAnother={handleGetAnother} />
+          }
+        </div>
       )
     }
-    
-    
+  }
+
+  useEffect(() => {
+    loadAnother()
+  }, []);
+
+
+  return (
+    <>
+      {showView()}
+    </>
+  )
+}
