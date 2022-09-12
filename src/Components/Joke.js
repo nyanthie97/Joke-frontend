@@ -43,3 +43,12 @@ export function Joke() {
         setError(error);
       })
   }
+
+  const showView = () => {
+    if (error) {
+      return (
+        <div>
+          <div>Error: {error.message}</div>
+          <Button color="info" onClick={handleGetAnother}>Try Again</Button>
+        </div>
+      );
