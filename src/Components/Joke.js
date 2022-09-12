@@ -73,3 +73,9 @@ export function Joke() {
         )
       }
     }
+
+    useEffect(() => {
+        loadAnother()
+      }, []);
+    
+    
