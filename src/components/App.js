@@ -6,7 +6,7 @@ import { Joke } from './Joke';
 export default function App() {
   return (
     <div className="App">
-      <Header title="Tell Brenda A Joke" />
+      <Header title="Tell Me A Joke" />
       <Joke />
     </div>
   );
